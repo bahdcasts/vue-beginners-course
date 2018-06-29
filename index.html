@@ -12,7 +12,10 @@
     <h1>{{ count }}</h1>
 
     <button @click="reduceCounter">-</button>
-    <button>+</button>
+    <button v-on:click="addCounter">+</button>
+
+    <p v-if="count % 2 === 0">The current count is even</p>
+    <p v-else>The current count is odd</p>
   </div>
   
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -25,6 +28,9 @@
       methods: {
         reduceCounter: function () {
           this.count--
+        },
+        addCounter: function() {
+          this.count++
         }
       }
     })
