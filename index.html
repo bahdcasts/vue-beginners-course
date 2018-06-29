@@ -9,6 +9,8 @@
 <body>
 
   <div id="app">
+    <label>Increment by: </label>
+    <input v-model="incrementBy" type="text">
     <h1>{{ count }}</h1>
 
     <button @click="reduceCounter">-</button>
@@ -23,19 +25,23 @@
     new Vue({
       el: '#app',
       data: {
-        count: 0
+        count: 0,
+        incrementBy: 1
       },
       methods: {
         reduceCounter: function () {
-          this.count--
+          this.count -= this.getIncrementValue
         },
         addCounter: function() {
-          this.count++
+          this.count += this.getIncrementValue
         }
     },
     computed: {
       isEvenNumber() {
         return this.count % 2 === 0
+      },
+      getIncrementValue() {
+        return Number(this.incrementBy)
       }
     }
     })
