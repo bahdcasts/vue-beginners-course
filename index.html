@@ -9,13 +9,16 @@
 <body>
 
   <footer id="footer">
-    <p>copyright 2018</p>
+    <p>copyright {{ date.getFullYear() }}</p>
   </footer>
   
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script>
     new Vue({
-      el: '#footer'
+      el: '#footer',
+      data: {
+        date: new Date()
+      }
     })
   </script>
 </body>
